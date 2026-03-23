@@ -1,0 +1,35 @@
+<table border="1" cellpadding="8" cellspacing="0">
+    <tr>
+        <th>ID</th>
+        <th>Room</th>
+        <th>Date</th>
+        <th>Slot</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Organization</th>
+        <th>Phone</th>
+        <th>Insurance</th>
+        <th>Special Request</th>
+        <th>Booked On</th>
+        <th>Action</th>
+    </tr>
+
+    {% for booking in bookings %}
+    <tr>
+        <td>{{ booking.id }}</td>
+        <td>{{ booking.room }}</td>
+        <td>{{ booking.date }}</td>
+        <td>{{ booking.slot }}</td>
+        <td>{{ booking.name }}</td>
+        <td>{{ booking.email }}</td>
+        <td>{{ booking.organization }}</td>
+        <td>{{ booking.phone }}</td>
+        <td>{{ booking.insurance }}</td>
+        <td>{{ booking.special_request }}</td>
+        <td>{{ booking.created_at }}</td>
+        <td>
+            <a href="/delete/{{ booking.id }}" style="color:red;">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
