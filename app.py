@@ -171,7 +171,7 @@ def book():
     conn.commit()
     conn.close()
 
-    return jsonify({"success": True})
+    return jsonify({"status": "success"})
 
 
 # ================= RUN APP =================

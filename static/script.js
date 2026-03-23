@@ -59,21 +59,23 @@ function generateSlots() {
 
         const slotHour = parseInt(slot.split(":")[0]);
 
+        /* ===== CONDITIONS ===== */
+
         // Past date
         if (selectedDate < new Date(today.toDateString())) {
-            button.classList.add("unavailable");
+            button.classList.add("unavailable"); // 🔴 RED
             button.disabled = true;
         }
 
-        // Sunday (Unavailable)
+        // Sunday
         else if (day === 0) {
-            button.classList.add("unavailable");
+            button.classList.add("unavailable"); // 🔴 RED
             button.disabled = true;
         }
 
-        // Saturday (Already Booked)
+        // Saturday (force booked)
         else if (day === 6) {
-            button.classList.add("booked");
+            button.classList.add("booked"); // 🟡 YELLOW
             button.disabled = true;
         }
 
@@ -82,7 +84,7 @@ function generateSlots() {
             selectedDate.toDateString() === today.toDateString() &&
             slotHour <= today.getHours()
         ) {
-            button.classList.add("unavailable");
+            button.classList.add("unavailable"); // 🔴 RED
             button.disabled = true;
         }
 
@@ -110,10 +112,10 @@ function toggleSlot(button) {
 
     if (selectedSlots.includes(slotValue)) {
         selectedSlots = selectedSlots.filter(s => s !== slotValue);
-        button.classList.remove("selected");
+        button.classList.remove("selected"); // remove green
     } else {
         selectedSlots.push(slotValue);
-        button.classList.add("selected");
+        button.classList.add("selected"); // 🟢 GREEN
     }
 }
 
@@ -137,7 +139,7 @@ function loadBookedSlots() {
 
             if (bookedSlots.includes(slotValue)) {
                 button.classList.remove("selected");
-                button.classList.add("booked");
+                button.classList.add("booked"); // 🟡 YELLOW
                 button.disabled = true;
             }
         });
@@ -192,13 +194,14 @@ function confirmBooking() {
     .then(res => res.json())
     .then(data => {
 
-        if (data.success) {
-            alert("Your Provisional booking is done✅");
-            alert("One of our team member will call you shortly to confirm same.");
-            alert("Thank you!");
+        // FIXED RESPONSE KEY
+        if (data.status === "success") {
+
+            alert("Provisional booking is done!\nOne of our team member will contact you shortly.\nThank you.");
 
             selectedSlots = [];
-            generateSlots();  // refresh UI
+            generateSlots();
+
         } else {
             alert("Server error");
         }
