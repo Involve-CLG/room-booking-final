@@ -10,9 +10,11 @@
 <!-- Top Navigation -->
 <div class="top-nav">
 
-    <div class="logo-container">
-        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Involve Logo">
-    </div>
+   <div class="logo-container">
+    <img src="{{ url_for('static', filename='images/logo.png') }}">
+    <img src="{{ url_for('static', filename='images/pobal.jpg') }}">
+    <img src="{{ url_for('static', filename='images/voice.png') }}">
+</div>
 
     <div class="nav-links">
         <a href="/">Home</a>
@@ -45,7 +47,7 @@
         <div class="rooms-container">
 
             <!-- Board Room -->
-            <div class="room-card" onclick="selectRoom('Board Room')">
+            <div id="boardRoomCard" class="room-card" onclick="selectRoom('Board Room')">
                 <img src="{{ url_for('static', filename='images/mini-room.jpeg') }}">
                 <h2>Board Room</h2>
                 <p><strong>Capacity:</strong> 8 - 10 People</p>
@@ -53,11 +55,11 @@
             </div>
 
             <!-- Conference Hall -->
-            <div class="room-card" onclick="selectRoom('Large Conference Hall')">
+            <div id="conferenceHallCard" class="room-card" onclick="selectRoom('Large Conference Hall')">
                 <img src="{{ url_for('static', filename='images/meeting-hall.jpeg') }}">
                 <h2>Large Conference Hall</h2>
                 <p><strong>Capacity:</strong> upto 50 People</p>
-                <p><strong>Facilities:</strong> Tables, Chairs, Whiteboard, Markers, Projector, Flipchart</p>
+                <p><strong>Facilities:</strong> Tables, Chairs, Whiteboard, Projector, Flipchart</p>
             </div>
 
         </div>
@@ -76,14 +78,6 @@
 
             <!-- Insurance + Special + Date -->
             <div class="details-row">
-
-                <div class="field-group">
-                    <label class="field-label">Insurance:</label>
-                    <div class="radio-group">
-                        <label><input type="radio" name="insurance" value="Yes"> Yes</label>
-                        <label><input type="radio" name="insurance" value="No"> No</label>
-                    </div>
-                </div>
 
                 <div class="field-group">
                     <label class="field-label">Special Request:</label>
