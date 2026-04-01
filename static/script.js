@@ -167,9 +167,9 @@ function confirmBooking() {
     const phone = document.getElementById("phoneNumber").value.trim();
     const specialRequest = document.getElementById("specialRequest").value.trim();
 
-    const insurance = document.querySelector('input[name="insurance"]:checked');
+    
 
-    if (!name || !email || !organization || !phone || !specialRequest || !insurance) {
+    if (!name || !email || !organization || !phone ) {
         alert("Please fill all fields");
         return;
     }
@@ -187,7 +187,6 @@ function confirmBooking() {
             email: email,
             organization: organization,
             phone: phone,
-            insurance: insurance.value,
             special_request: specialRequest
         })
     })
