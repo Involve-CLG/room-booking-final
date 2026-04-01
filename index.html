@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Room Booking System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<!-- Top Navigation -->
+<div class="top-nav">
+
+   <div class="logo-container">
+    <img src="{{ url_for('static', filename='images/logo.png') }}">
+    <img src="{{ url_for('static', filename='images/pobal.jpg') }}">
+    <img src="{{ url_for('static', filename='images/voice.png') }}">
+</div>
+
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/contact">Contact Us</a>
+        <a href="/admin-login">Admin</a>
+    </div>
+
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="main-layout">
+
+    <!-- LEFT OFFER BOX -->
+    <div class="subscriber-left-box">
+        <h3>🎉 Exclusive Offer</h3>
+        <p>
+            Special discount for subscribers of <strong>Travellers' Voice Magazine</strong>.
+        </p>
+        <p class="highlight-text">
+            Contact: 0906498017
+        </p>
+    </div>
+
+    <!-- CENTER CONTENT -->
+    <div class="center-content">
+
+        <h1>Room Booking System</h1>
+
+        <!-- ROOMS -->
+        <div class="rooms-container">
+
+            <!-- Board Room -->
+            <div id="boardRoomCard" class="room-card" onclick="selectRoom('Board Room')">
+                <img src="{{ url_for('static', filename='images/mini-room.jpeg') }}">
+                <h2>Board Room</h2>
+                <p><strong>Capacity:</strong> 8 - 10 People</p>
+                <p><strong>Facilities:</strong> Table, Chairs, Flipchart, Video Conferencing</p>
+            </div>
+
+            <!-- Conference Hall -->
+            <div id="conferenceHallCard" class="room-card" onclick="selectRoom('Large Conference Hall')">
+                <img src="{{ url_for('static', filename='images/meeting-hall.jpeg') }}">
+                <h2>Large Conference Hall</h2>
+                <p><strong>Capacity:</strong> upto 50 People</p>
+                <p><strong>Facilities:</strong> Tables, Chairs, Whiteboard, Projector, Flipchart</p>
+            </div>
+
+        </div>
+
+        <!-- BOOKING SECTION -->
+        <div id="bookingSection" style="display:none;">
+
+            <h2>Customer Details</h2>
+
+            <div class="input-row">
+                <input type="text" id="customerName" placeholder="Enter your name">
+                <input type="email" id="customerEmail" placeholder="Enter your email">
+                <input type="text" id="organizationName" placeholder="Enter your organization">
+                <input type="text" id="phoneNumber" placeholder="Enter your phone number">
+            </div>
+
+            <!-- Insurance + Special + Date -->
+            <div class="details-row">
+
+                <div class="field-group">
+                    <label class="field-label">Special Request:</label>
+                    <input type="text" id="specialRequest" placeholder="Enter any special request">
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">Select Date:</label>
+                    <input type="date" id="bookingDate">
+                </div>
+
+            </div>
+
+            <!-- TIME SLOTS -->
+            <div id="slotsContainer" class="slots-container"></div>
+
+            <!-- BUTTON -->
+            <button class="confirm-btn" onclick="confirmBooking()">Confirm Booking</button>
+
+        </div>
+
+    </div>
+
+    <!-- RIGHT PRICING BOX -->
+    <div class="pricing-note">
+        <h3>Room Charges</h3>
+
+        <p><strong>Board Room:</strong> €15 per hour</p>
+        <p><strong>Large Conference Hall:</strong> €20 per hour</p>
+
+        <hr>
+
+        <p><strong>Note:</strong></p>
+        <ul>
+            <li>Refreshments – Additional charge</li>
+        </ul>
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
