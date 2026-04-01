@@ -13,8 +13,17 @@ body {
     padding: 15px 40px;
 }
 
-.logo-container img {
-    height: 60px;
+.logo-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;   /* space between logos */
+    padding: 15px 50px
+}
+
+
+.logo-container h2 {
+    margin: 0;
 }
 
 .nav-links a {
@@ -92,7 +101,7 @@ body {
 
 /* ===== TEXT ===== */
 h1 {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .highlight-text {
@@ -116,9 +125,10 @@ h1 {
 .details-row {
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 20px;
-    margin: 15px 0;
+    gap: 40px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
 }
 
 .field-group {
@@ -140,8 +150,11 @@ h1 {
 
 /* ===== SLOT BUTTONS ===== */
 .slots-container {
-    text-align: center;
-    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    gap: 10px;
+    margin-top: 25 px;
 }
 
 .slot-btn {
@@ -185,6 +198,11 @@ h1 {
 .slot.unavailable {
     background: #e74c3c; /* RED */
     color: white;
+}
+
+.selected-room{
+    border: 3px solid #28a745;
+    box-shadow: 0 0 15px rgba(40,167,69,0.6);
 }
 
 /* ===== RESPONSIVE (IMPORTANT) ===== */
